@@ -1,0 +1,29 @@
+{
+  "name": "edvardpotter/outline-manager-client",
+  "description": "Outline api manager for PHP projects",
+  "keywords": [
+    "outlinevpn",
+    "outline php",
+    "outline manager",
+    "outline manager php",
+    "outline api client"
+  ],
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "OutlineManagerClient\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Edvardpotter",
+      "email": "eduard1997@bk.ru"
+    }
+  ],
+  "require": {
+    "php": ">=7.4",
+    "ext-json": "*",
+    "guzzlehttp/guzzle": "^7.7"
+  }
+}
