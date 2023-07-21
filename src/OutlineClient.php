@@ -8,6 +8,7 @@ use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\RequestOptions;
 use OutlineManagerClient\Type\KeyType;
 use OutlineManagerClient\Type\ServerType;
+use Psr\Http\Message\ResponseInterface;
 
 class OutlineClient
 {
@@ -27,8 +28,7 @@ class OutlineClient
 
     public function getServer(): ServerType
     {
-        $body = (string)$this->client->get('server')->getBody();
-        $result = json_decode($body, true, 512, JSON_THROW_ON_ERROR);
+        $result = $this->json($this->client->get('server'));
 
         return new ServerType($result);
     }
@@ -58,8 +58,7 @@ class OutlineClient
      */
     public function getKeys(): array
     {
-        $body = (string)$this->client->get('access-keys')->getBody();
-        $result = json_decode($body, true, 512, JSON_THROW_ON_ERROR);
+        $result = $this->json($this->client->get('access-keys'));
 
         $metrics = $this->getUsedBytes();
         $keys = [];
@@ -79,13 +78,13 @@ class OutlineClient
 
     public function addKey(string $name = null): KeyType
     {
-        $body = (string)$this->client->post('access-keys', [
+        $response = $this->client->post('access-keys', [
             RequestOptions::JSON => [
                 'name' => $name,
             ],
-        ])->getBody();
+        ]);
 
-        $result = json_decode($body, true, 512, JSON_THROW_ON_ERROR);
+        $result = $this->json($response);
 
         if ($name !== null) {
             $this->setKeyName($result['id'], $name);
@@ -116,9 +115,7 @@ class OutlineClient
      */
     public function getUsedBytes(): array
     {
-        $body = (string)$this->client->get('metrics/transfer')->getBody();
-
-        $result = json_decode($body, true, 512, JSON_THROW_ON_ERROR);
+        $result = $this->json($this->client->get('metrics/transfer'));
 
         return $result['bytesTransferredByUserId'];
     }
@@ -153,5 +150,12 @@ class OutlineClient
     public function unsetDefaultDataLimit(): void
     {
         $this->client->delete('server/access-key-data-limit');
+    }
+
+    private function json(ResponseInterface $response): array
+    {
+        $body = (string)$response->getBody();
+
+        return json_decode($body, true, 512, JSON_THROW_ON_ERROR);
     }
 }
