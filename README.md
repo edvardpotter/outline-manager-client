@@ -1,8 +1,8 @@
-[![Latest Stable Version](http://poser.pugx.org/edvardpotter/outline-manager-client/v)](https://packagist.org/packages/edvardpotter/outline-manager-client) [![Total Downloads](http://poser.pugx.org/edvardpotter/outline-manager-client/downloads)](https://packagist.org/packages/edvardpotter/outline-manager-client) [![Latest Unstable Version](http://poser.pugx.org/edvardpotter/outline-manager-client/v/unstable)](https://packagist.org/packages/edvardpotter/outline-manager-client) [![License](http://poser.pugx.org/edvardpotter/outline-manager-client/license)](https://packagist.org/packages/edvardpotter/outline-manager-client) [![PHP Version Require](http://poser.pugx.org/edvardpotter/outline-manager-client/require/php)](https://packagist.org/packages/edvardpotter/outline-manager-client)
-
 # OutlineVPN Manager Client
 
-Outline manager client for PHP projects ([OutlineVPN](https://getoutline.org/)).
+[![Latest Stable Version](http://poser.pugx.org/edvardpotter/outline-manager-client/v)](https://packagist.org/packages/edvardpotter/outline-manager-client) [![Total Downloads](http://poser.pugx.org/edvardpotter/outline-manager-client/downloads)](https://packagist.org/packages/edvardpotter/outline-manager-client) [![Latest Unstable Version](http://poser.pugx.org/edvardpotter/outline-manager-client/v/unstable)](https://packagist.org/packages/edvardpotter/outline-manager-client) [![License](http://poser.pugx.org/edvardpotter/outline-manager-client/license)](https://packagist.org/packages/edvardpotter/outline-manager-client) [![PHP Version Require](http://poser.pugx.org/edvardpotter/outline-manager-client/require/php)](https://packagist.org/packages/edvardpotter/outline-manager-client)
+
+A PHP API wrapper for [OutlineVPN](https://getoutline.org/).
 
 ## Installation
 
