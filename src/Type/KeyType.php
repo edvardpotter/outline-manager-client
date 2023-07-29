@@ -9,7 +9,7 @@ class KeyType extends AbstractType
     protected string $password;
     protected int $port;
     protected string $method;
-    protected array $dataLimit;
+    protected ?int $dataLimit = null;
     protected string $accessUrl;
     protected ?int $usedBytes = null;
 
@@ -38,7 +38,7 @@ class KeyType extends AbstractType
         return $this->method;
     }
 
-    public function getDataLimit(): array
+    public function getDataLimit(): ?int
     {
         return $this->dataLimit;
     }

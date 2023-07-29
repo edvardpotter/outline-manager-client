@@ -65,6 +65,7 @@ class OutlineClient
 
         foreach ($result['accessKeys'] as $key) {
             $key['usedBytes'] = $metrics[$key['id']] ?? null;
+            $key['dataLimit'] = $key['dataLimit']['bytes'] ?? null;
             $keys[$key['id']] = new KeyType($key);
         }
 
